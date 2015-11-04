@@ -1,6 +1,6 @@
 # tortoise
 
-##kaggle competition 
+##kaggle competition challenging now
 https://www.kaggle.com/c/rossmann-store-sales  
 
 ##references:  
