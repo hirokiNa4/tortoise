@@ -4,7 +4,8 @@ head(train)
 
 train.lm <- lm(
   sales ~
-    day_of_week
+    avg_sales
+    +day_of_week
 #    +logyear
 #    +logmonth
     +competition
@@ -26,10 +27,12 @@ summary(train.lm)
 
 #AICでモデル最適化（L2正則化をためしてみたい）
 train.lm.aic <- stepAIC(train.lm)
+summary(train.lm.aic)
+
 
 #モデルで検証データを予測
 valid.pre <- predict(
-    train.lm,
+    train.lm.aic,
     newdata=valid,
     interval= "prediction"
   )
@@ -38,7 +41,10 @@ valid.pre.valid <-  data.frame(valid.pre, valid)
 valid.pre.valid$residuals <- valid.pre.valid$sales - valid.pre.valid$fit
 head(valid.pre.valid, 20)
 
+
+#############################
 #残差の合計
+#############################
 sum(valid.pre.valid$residuals)
 
 
@@ -47,7 +53,7 @@ sum(valid.pre.valid$residuals)
 # make submission data
 ##############################
 test.pre <- predict(
-    train.lm,
+    train.lm.aic,
     newdata=test,
     interval= "prediction"    
   )

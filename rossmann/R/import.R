@@ -1,6 +1,6 @@
 #d <- read.csv("data//train_20151101_1.csv", header=T)
-d <- read.csv("data//train_20151103_1.csv", header=T)
-test <- read.csv("data//test_20151103_1.csv", header=T)
+d <- read.csv("data//train_20151109_1.csv", header=T)
+test <- read.csv("data//test_20151109_1.csv", header=T)
   
 head(d)
 str(d)
