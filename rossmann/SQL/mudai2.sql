@@ -14,42 +14,66 @@ select * from weather limit 2000;
 select * from store_state;
 
 
-select max(logdate), min(logdate) from weather;
 
-select max(logdate), min(logdate) from weather
-where state = 'SN' and logdate = ''
+
+
+select * from MedianTable2;
+
+select 
+    avg(a.Val)  MedianVal
+from (
+    select 
+        Val
+    from (
+        select 
+            Val,
+            ( 
+              select 
+                  count(*)+1 
+              from 
+                  MedianTable2 bb 
+              where bb.Val>aa.Val
+            )  Rank
+        from MedianTable2 aa
+    ) a,
+    (
+        select 
+            count(*) RecordCount 
+        from MedianTable2
+    ) b
+    group by a.Val, a.Rank, b.RecordCount
+    having 
+        mod(b.RecordCount,2) = 0
+    and (
+        b.RecordCount/2  between a.Rank and a.Rank + count(*)-1
+        or b.RecordCount/2+1 between a.Rank and a.Rank+count(*)-1
+    )
+    or 
+        mod(b.RecordCount,2) = 1
+    and ceil(b.RecordCount/2) between a.Rank and a.Rank+count(*)-1
+)
 ;
 
 
-select 
-    state,
-    logdate,
-    case 
-        when events = '' then '1'
-        else '0'
-    end sunny,
-    case
-        when events like '%Rain%' then 1
-        else '0'
-    end rain,
-    case
-        when events like '%Fog%' then 1
-        else '0'
-    end fog,
-    case
-        when events like '%Snow%' then 1
-        else '0'
-    end snow,
-    case
-        when events like '%Hail%' then 1
-        else '0'
-    end hail,
-    case
-        when events like '%Thunderstorm%' then 1
-        else '0'
-    end thundr
-from weather
-limit 2000;
 
+    select 
+        *--Val
+    from (
+        select 
+            Val,
+            ( 
+              select 
+                  count(*)+1 
+              from 
+                  MedianTable2 bb 
+              where bb.Val>aa.Val
+            )  Rank
+        from MedianTable2 aa
+    ) a,
+    (
+        select 
+            count(*) RecordCount 
+        from MedianTable2
+    ) b
 
-
+         
