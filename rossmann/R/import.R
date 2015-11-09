@@ -51,6 +51,8 @@ test$hail <- factor(test$hail)
 test$thunder <- factor(test$thunder)
 
 
+str(test)
+
 
 
 

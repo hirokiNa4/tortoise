@@ -66,19 +66,12 @@ test.pre.valid.out <- test.pre.valid[,c(4,1)]
 ##############################
 write.csv(
   test.pre.valid.out, 
-  "/Users/Komai/Onedrive/tortoise/rossmann/R/out/out_20151103_1.csv", 
+  "/Users/Komai/Onedrive/tortoise/rossmann/R/out/out_20151109_1.csv", 
   quote=F, 
   col.names=T, 
   row.names=F,
   append=T
 )
-
-
-
-
-
-
-
 
 
 
