@@ -9,8 +9,10 @@ train_sub3 <- train[sample(1:nr_train ,nr_train/25),]
 train_sub4 <- train[sample(1:nr_train ,nr_train/25),] 
 train_sub5 <- train[sample(1:nr_train ,nr_train/25),] 
 train_sub6 <- train[sample(1:nr_train ,nr_train/25),] 
+train_sub7 <- train[sample(1:nr_train ,nr_train/25),] 
 
-train.rf6 <- randomForest(
+
+train.rf7 <- randomForest(
   sales ~
     avg_sales
   +day_of_week
@@ -28,7 +30,7 @@ train.rf6 <- randomForest(
   +snow
   +hail
   +thunder
-  ,data = train_sub6
+  ,data = train_sub7
 )
 
 #モデルで検証データを予測
