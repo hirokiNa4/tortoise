@@ -4,9 +4,7 @@
 https://www.kaggle.com/c/rossmann-store-sales  
 
 ###history
-convert .csv to pkl for pylearn2
-@ python/lab/convert_csv_pkl.py
-
+convert .csv to pkl for pylearn2 @ python/lab/convert_csv_pkl.py
 a csv file must be only numerical data.
 
 
