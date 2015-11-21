@@ -9,7 +9,8 @@ convert .csv to pkl
 a csv file must be only numerical data.
 
 2.try h2o module  
-tried random forest using train data 
+tried random forest using train data  
+it doesnt serve well...   
 
 ###tasks to go:
 baging  
