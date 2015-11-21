@@ -15,65 +15,14 @@ select * from store_state;
 
 
 
-
-
-select * from MedianTable2;
-
+--csvファイル出力（test_20151109_1）
 select 
-    avg(a.Val)  MedianVal
-from (
-    select 
-        Val
-    from (
-        select 
-            Val,
-            ( 
-              select 
-                  count(*)+1 
-              from 
-                  MedianTable2 bb 
-              where bb.Val>aa.Val
-            )  Rank
-        from MedianTable2 aa
-    ) a,
-    (
-        select 
-            count(*) RecordCount 
-        from MedianTable2
-    ) b
-    group by a.Val, a.Rank, b.RecordCount
-    having 
-        mod(b.RecordCount,2) = 0
-    and (
-        b.RecordCount/2  between a.Rank and a.Rank + count(*)-1
-        or b.RecordCount/2+1 between a.Rank and a.Rank+count(*)-1
-    )
-    or 
-        mod(b.RecordCount,2) = 1
-    and ceil(b.RecordCount/2) between a.Rank and a.Rank+count(*)-1
-)
+    'store', 'day_of_week', 'sales', 'customers', 'open', 'promo',   
+    'state_holiday', 	'school_holiday'
+from dual 
+union 
+select store, day_of_week, sales, customers, open, promo, state_holiday,school_holiday  from train 
+limit 1000
+INTO OUTFILE '/Users/Komai/OneDrive/tortoise/rossmann/python/suuji_dake.csv' FIELDS TERMINATED BY ','
+
 ;
-
-
-
-    select 
-        *--Val
-    from (
-        select 
-            Val,
-            ( 
-              select 
-                  count(*)+1 
-              from 
-                  MedianTable2 bb 
-              where bb.Val>aa.Val
-            )  Rank
-        from MedianTable2 aa
-    ) a,
-    (
-        select 
-            count(*) RecordCount 
-        from MedianTable2
-    ) b
-
-         
