@@ -5,7 +5,7 @@ https://www.kaggle.com/c/rossmann-store-sales
 
 ###history
 1.pylean2 challenge  
-convert .csv to pkl for pylearn2 @ python/lab/convert_csv_pkl.py  
+convert .csv to pkl  
 a csv file must be only numerical data.
 
 2.try h2o module  
