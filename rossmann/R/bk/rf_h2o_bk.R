@@ -39,7 +39,7 @@ train <- fread("data/train.csv",stringsAsFactors = T)
 test  <- fread("data/test.csv",stringsAsFactors = T)
 
 store <- fread("data/store.csv",stringsAsFactors = T)
-store <- na.omit(store)
+
 
 train <- train[Sales > 0,]  ## We are not judged on 0 sales records in test set
 ## See Scripts discussion from 10/8 for more explanation.

@@ -19,7 +19,6 @@ train[,open:=as.factor(open)]
 train[,state_holiday:=as.factor(state_holiday)]
 train[,school_holiday:=as.factor(school_holiday)]
 
-
 test[,store:=as.factor(store)]
 test[,logyear:=as.integer(logyear)]
 test[,competition:=as.factor(competition)]
@@ -38,7 +37,7 @@ h2o.init(nthreads=-1,max_mem_size='6G')
 ## Load data into cluster from R
 trainHex<-as.h2o(train)
 ## Set up variable to use all features other than those specified here
-features<-colnames(train)[!(colnames(train) %in% c("sales","customers", "logSales"))]
+features<-colnames(train)[!(colnames(train) %in% c("sales","customers", "logdate", "logSales"))]
 ## Train a random forest using all default parameters
 rfHex <- h2o.randomForest(x=features,
                           y="logSales", 
@@ -49,7 +48,6 @@ rfHex <- h2o.randomForest(x=features,
 
 
 summary(rfHex)
-cat("Predicting Sales\n")
 ## Load test data into cluster from R
 testHex<-as.h2o(test)
 
@@ -61,7 +59,7 @@ summary(pred)
 submission <- data.frame(Id=test$id, sales=pred)
 
 cat("saving the submission file\n")
-write.csv(submission, "out/h2o_rf.csv",row.names=F)
+write.csv(submission, "out/out_20151123_2.csv",row.names=F)
 
 
 
