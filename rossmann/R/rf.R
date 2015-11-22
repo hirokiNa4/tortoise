@@ -11,7 +11,6 @@ train_sub5 <- train[sample(1:nr_train ,nr_train/25),]
 train_sub6 <- train[sample(1:nr_train ,nr_train/25),] 
 train_sub7 <- train[sample(1:nr_train ,nr_train/25),] 
 
-
 train.rf7 <- randomForest(
   sales ~
     avg_sales

@@ -73,6 +73,16 @@ FIELDS TERMINATED BY ','
 
 
 
+--pylean2やh2oは、文字列を受け付けてくれん
+--カテゴリ変数をそれぞ数値化した上で、フラグ化する
+select * from train_weather_avg_op1
+limit 1000
+;
+
+
+
+
+
 
 
 

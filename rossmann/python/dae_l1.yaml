@@ -5,7 +5,7 @@
         stop: %(train_stop)i
     },
     model: !obj:pylearn2.models.autoencoder.DenoisingAutoencoder {
-        nvis : 784,
+        nvis : 7,
         nhid : %(nhid)i,
         irange : 0.05,
         corruptor: !obj:pylearn2.corruption.BinomialCorruptor {

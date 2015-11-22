@@ -15,7 +15,7 @@ train.bag <- bagging(
   +store_type
   +assortment
   +state
-  +rain
+  +rainbow
   +fog
   +snow
   +hail
@@ -24,12 +24,8 @@ train.bag <- bagging(
 )
 
 
-
-
-
-
-
-
-
-
 bag_sub <- c(sample(1:50, 35), sample(51:100, 35), sample(101:150, 35))
+
+
+
+

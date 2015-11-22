@@ -15,6 +15,7 @@ select * from store_state;
 
 
 
+
 --csvファイル出力（test_20151109_1）
 select 
     'store', 'day_of_week', 'sales', 'customers', 'open', 'promo',   

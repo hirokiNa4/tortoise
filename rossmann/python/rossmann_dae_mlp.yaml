@@ -1,0 +1,70 @@
+!obj:pylearn2.train.Train {
+    dataset: &train !pkl: "lab/suuji_dake.pkl",
+    model: !obj:pylearn2.models.mlp.MLP {
+        batch_size: 5,
+        layers: [
+                 !obj:pylearn2.models.mlp.PretrainedLayer {
+                     layer_name: 'h1',
+                     layer_content: !pkl: "dae_l1.pkl"
+                 },
+                 !obj:pylearn2.models.mlp.PretrainedLayer {
+                     layer_name: 'h2',
+                     layer_content: !pkl: "dae_l2.pkl"
+                 },
+                 !obj:pylearn2.models.mlp.LinearGaussian {
+                    #ーーよーわからんーーーーーーーーーーーーーーーーーーーーーーーー
+                     init_bias: !obj:pylearn2.models.mlp.mean_of_targets { 
+                       dataset: *train },
+                     init_beta: !obj:pylearn2.models.mlp.beta_from_targets { 
+                       dataset: *train },
+                     min_beta: 1.,
+                     max_beta: 100.,
+                     beta_lr_scale: 1.,
+                     dim: 1,
+                     # max_col_norm: 1.9365,
+                     layer_name: 'y',
+                     irange: .005
+                    #ーーわからんーーーーーーーーーーーーーーーーーーーーーーーー
+                 }
+                ],
+        nvis: 200
+    },
+    algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
+        learning_rate: .05,
+        learning_rule: !obj:pylearn2.training_algorithms.learning_rule.Momentum {
+            init_momentum: .5,
+        },
+        monitoring_dataset:
+            {
+                'valid' : !obj:pylearn2.datasets.mnist.MNIST {
+                              which_set: 'train',
+                              start: 50000,
+                              stop: %(valid_stop)i
+                          },
+            },
+        cost: !obj:pylearn2.costs.mlp.Default {},
+        termination_criterion: !obj:pylearn2.termination_criteria.And {
+            criteria: [
+                !obj:pylearn2.termination_criteria.MonitorBased {
+                    channel_name: "valid_y_misclass",
+                    prop_decrease: 0.,
+                    N: 100
+                },
+                !obj:pylearn2.termination_criteria.EpochCounter {
+                    max_epochs: %(max_epochs)i
+                }
+            ]
+        },
+        update_callbacks: !obj:pylearn2.training_algorithms.sgd.ExponentialDecay {
+            decay_factor: 1.00004,
+            min_lr: .000001
+        }
+    },
+    extensions: [
+        !obj:pylearn2.training_algorithms.learning_rule.MomentumAdjustor {
+            start: 1,
+            saturate: 250,
+            final_momentum: .7
+        }
+    ]
+}
