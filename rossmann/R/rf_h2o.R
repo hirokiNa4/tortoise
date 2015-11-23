@@ -1,5 +1,5 @@
-install.packages("data.table")
-install.packages("h2o")
+#install.packages("data.table")
+#install.packages("h2o")
 
 library(data.table)  
 library(h2o)
