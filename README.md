@@ -2,6 +2,7 @@
 
 ###kaggle competition:
 https://www.kaggle.com/c/rossmann-store-sales  
+https://www.kaggle.com/c/prudential-life-insurance-assessment  
 
 ###history
 1.pylean2 challenge  
