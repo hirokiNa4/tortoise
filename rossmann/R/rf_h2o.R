@@ -1,4 +1,3 @@
-
 install.packages("data.table")
 install.packages("h2o")
 
@@ -18,6 +17,15 @@ train[,competition:=as.factor(competition)]
 train[,open:=as.factor(open)]
 train[,state_holiday:=as.factor(state_holiday)]
 train[,school_holiday:=as.factor(school_holiday)]
+train[,promo:=as.factor(promo)]
+train[,promo2:=as.factor(promo2)]
+train[,rain:=as.factor(rain)]
+train[,fog:=as.factor(fog)]
+train[,snow:=as.factor(snow)]
+train[,hail:=as.factor(hail)]
+train[,thunder:=as.factor(thunder)]
+
+
 
 test[,store:=as.factor(store)]
 test[,logyear:=as.integer(logyear)]
