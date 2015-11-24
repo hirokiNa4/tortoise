@@ -4,7 +4,7 @@
 https://www.kaggle.com/c/rossmann-store-sales  
 https://www.kaggle.com/c/prudential-life-insurance-assessment  
 
-###references:  
+###references:
 ■ eXtreme Gradient Boosting  
 http://smrmkt.hatenablog.jp/entry/2015/04/28/210039  
 https://www.kaggle.com/benhamner/prudential-life-insurance-assessment/xgboost-example  
