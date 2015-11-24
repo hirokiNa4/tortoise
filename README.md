@@ -19,6 +19,9 @@ random forest + bagging_manually
 
 
 ###references:  
+■ eXtreme Gradient Boosting  
+http://smrmkt.hatenablog.jp/entry/2015/04/28/210039  
+■ deep learning by pylearn2  
 http://www.slideshare.net/yurieoka37/ss-28152060  
 http://qiita.com/dsanno/items/a1d805a89e192c44730d  
 http://deeplearning.net/software/pylearn2/library/index.html#libdoc
