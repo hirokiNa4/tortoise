@@ -1,7 +1,9 @@
 # tortoise
 
 ###kaggle competition:
+■ Rossmann ( best score 0.11 )
 https://www.kaggle.com/c/rossmann-store-sales  
+■ Prudential  
 https://www.kaggle.com/c/prudential-life-insurance-assessment  
 
 ###references:
