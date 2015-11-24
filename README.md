@@ -18,7 +18,7 @@ http://deeplearning.net/software/pylearn2/library/index.html#libdoc
 convert .csv to pkl  
 a csv file must be only numerical data.
 
-2.try h2o module  
+2.try random forest using h2o culster    
 tried random forest using train data  
 it doesnt serve well...   
 
