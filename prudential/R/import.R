@@ -2,6 +2,7 @@
 library(caret)
 
 train <- read.csv("data//train.csv", header=T)
+str(train, list.len=ncol(train))
 
 # define categorical variables
 train$Product_Info_1      <-as.factor(train$Product_Info_1)
@@ -71,12 +72,7 @@ train$Medical_History_41  <-as.factor(train$Medical_History_41)
 train.tmp <- dummyVars(~., data=train)
 train.dummy <- as.data.frame(predict(train.tmp, train))
 
-str(train.dummy)
-
-
-
-
-
+str(train, list.len=ncol(train.dummy))
 
 
 
