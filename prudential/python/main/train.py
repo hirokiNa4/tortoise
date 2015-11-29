@@ -59,8 +59,7 @@ def test_sda():
 
     skip.skip_if_no_data()
 
-    yaml_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                                  '..'))
+    yaml_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     save_path = os.path.dirname(os.path.realpath(__file__))
 
     train_layer1(yaml_file_path, save_path)

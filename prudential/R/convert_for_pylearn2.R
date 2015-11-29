@@ -68,11 +68,13 @@ str(d2, list.len=ncol(d2))
 nr <- nrow(d2)
 train <- d2[sample(1:nr,3*nr/4),]
 valid <- d2[sample(1:nr,  nr/4),] 
+train_mini <- d2[sample(1:nr,nr/50),]
 
 str(train, list.len=ncol(train))
 
 
 # make a csv file for pylearn2
+write.csv(train_mini, "out_for_pylearn2/train_mini.csv",row.names=F)
 write.csv(train, "out_for_pylearn2/train_20151129_1.csv",row.names=F)
 write.csv(valid, "out_for_pylearn2/valid_20151129_1.csv",row.names=F)
 
