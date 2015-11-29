@@ -1,6 +1,3 @@
-#install.packages("caret")
-library(caret)
-
 d <- read.csv("data//train.csv", header=T)
 
 # define categorical variables
@@ -69,13 +66,6 @@ d$Response            <-as.factor(d$Response)
 
 
 str(d, list.len=ncol(d))
-
-# convert categorical variables to dummy
-d.tmp <- dummyVars(~., data=d)
-d.dummy <- as.data.frame(predict(d.tmp, d))
-
-str(d, list.len=ncol(d.dummy))
-
 
 
 #----------------------------------------------------

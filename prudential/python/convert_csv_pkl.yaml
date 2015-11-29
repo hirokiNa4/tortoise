@@ -1,0 +1,5 @@
+from pylearn2.datasets.csv_dataset import CSVDataset
+import pickle
+
+pyln_data = CSVDataset( "../R/out/xxx.csv" , delimiter=',', one_hot = T )
+pickle.dump( pyln_data, open( "data/train.pkl" , 'w' ) )
