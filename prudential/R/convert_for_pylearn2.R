@@ -4,7 +4,7 @@ library(caret)
 str(d, list.len=ncol(d))
 str(d1, list.len=ncol(d1))
 
-# remove columns almost are na
+# remove columns almost NA
 d1 <- d[,-c(38, 48, 62, 70)]
 
 # Employment_Info_1
@@ -68,6 +68,9 @@ str(d2, list.len=ncol(d2))
 nr <- nrow(d2)
 train <- d2[sample(1:nr,3*nr/4),]
 valid <- d2[sample(1:nr,  nr/4),] 
+
+str(train, list.len=ncol(train))
+
 
 # make a csv file for pylearn2
 write.csv(train, "out_for_pylearn2/train_20151129_1.csv",row.names=F)
