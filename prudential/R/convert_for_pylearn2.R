@@ -74,7 +74,7 @@ str(train, list.len=ncol(train))
 
 # make a csv file for pylearn2
 write.csv(train, "out_for_pylearn2/train_20151129_1.csv",row.names=F)
-
+write.csv(valid, "out_for_pylearn2/valid_20151129_1.csv",row.names=F)
 
 
 
