@@ -1,11 +1,8 @@
 !obj:pylearn2.train.Train {
-    dataset: &train !obj:pylearn2.datasets.mnist.MNIST {
-        which_set: 'train',
-        start: 0,
-        stop: %(train_stop)i
-    },
+    dataset: &train !pkl: "../data/train_mini.pkl",
+
     model: !obj:pylearn2.models.autoencoder.DenoisingAutoencoder {
-        nvis : 784,
+        nvis : %(nvis)i,
         nhid : %(nhid)i,
         irange : 0.05,
         corruptor: !obj:pylearn2.corruption.BinomialCorruptor {
@@ -14,6 +11,7 @@
         act_enc: "tanh",
         act_dec: null,    # Linear activation on the decoder side.
     },
+
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {
         learning_rate : 1e-3,
         batch_size : %(batch_size)i,
