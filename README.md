@@ -14,7 +14,8 @@ https://github.com/dmlc/xgboost/blob/master/doc/parameter.md
 ■ deep learning by pylearn2  
 http://www.slideshare.net/yurieoka37/ss-28152060  
 http://qiita.com/dsanno/items/a1d805a89e192c44730d 
-http://deeplearning.net/software/pylearn2/library/index.html#libdoc
+http://deeplearning.net/software/pylearn2/library/index.html#libdoc  
+https://www.kaggle.com/wittmaan/prudential-life-insurance-assessment/exploring-the-data 
 
 ###struggle log:   
 ■ pylean2 challenge  
