@@ -1,6 +1,6 @@
 !obj:pylearn2.train.Train {
     dataset: &train !obj:pylearn2.datasets.transformer_dataset.TransformerDataset {
-        raw: !pkl: "../data/train_mini.pkl",
+        raw: !pkl: %(train_data)s,
         transformer: !pkl: "dae_l1.pkl"
     },
     model: !obj:pylearn2.models.autoencoder.DenoisingAutoencoder {
@@ -10,7 +10,7 @@
         corruptor: !obj:pylearn2.corruption.BinomialCorruptor {
             corruption_level: .3,
         },
-        act_enc: "tanh",
+        act_enc: %(act_enc)s,
         act_dec: null,    # Linear activation on the decoder side.
     },
     algorithm: !obj:pylearn2.training_algorithms.sgd.SGD {

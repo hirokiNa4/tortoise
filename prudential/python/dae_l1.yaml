@@ -1,5 +1,5 @@
 !obj:pylearn2.train.Train {
-    dataset: &train !pkl: "../data/train_mini.pkl",
+    dataset: &train !pkl: %(train_data)s,
 
     model: !obj:pylearn2.models.autoencoder.DenoisingAutoencoder {
         nvis : %(nvis)i,
@@ -8,7 +8,7 @@
         corruptor: !obj:pylearn2.corruption.BinomialCorruptor {
             corruption_level: .2,
         },
-        act_enc: "tanh",
+        act_enc: %(act_enc)s,
         act_dec: null,    # Linear activation on the decoder side.
     },
 
@@ -22,6 +22,7 @@
             max_epochs: %(max_epochs)i,
         },
     },
+
     save_path: "%(save_path)s/dae_l1.pkl",
     save_freq: 1
 }

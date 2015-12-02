@@ -64,6 +64,17 @@ features<-colnames(d1.dummy)[!(colnames(d1.dummy) %in% c("Id", "Response"))]
 d2 <- data.frame(Response = d1.dummy$Response, d1.dummy[,features])
 str(d2, list.len=ncol(d2))
 
+# target variables must begin from 0 because of pylearn2 
+d2$Response <- ifelse(d2$Response==1, 0, d2$Response)
+d2$Response <- ifelse(d2$Response==2, 1, d2$Response)
+d2$Response <- ifelse(d2$Response==3, 2, d2$Response)
+d2$Response <- ifelse(d2$Response==4, 3, d2$Response)
+d2$Response <- ifelse(d2$Response==5, 4, d2$Response)
+d2$Response <- ifelse(d2$Response==6, 5, d2$Response)
+d2$Response <- ifelse(d2$Response==7, 6, d2$Response)
+d2$Response <- ifelse(d2$Response==8, 7, d2$Response)
+table(d2$Response)
+
 #separate original data to train & valid
 nr <- nrow(d2)
 train <- d2[sample(1:nr,3*nr/4),]
