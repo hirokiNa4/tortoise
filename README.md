@@ -17,12 +17,3 @@ http://qiita.com/dsanno/items/a1d805a89e192c44730d
 http://deeplearning.net/software/pylearn2/library/index.html#libdoc  
 https://www.kaggle.com/wittmaan/prudential-life-insurance-assessment/exploring-the-data 
 
-###struggle log:   
-■ pylean2 challenge  
-convert .csv to pkl  
-a csv file must be only numerical data.
-
-■ try random forest using h2o culster    
-tried random forest using train data  
-it doesnt serve well...   
-
